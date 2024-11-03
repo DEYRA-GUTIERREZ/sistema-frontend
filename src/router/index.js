@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import Testimonial from "../views/Testimonial.vue";
 import WhyUs from "../views/WhyUs.vue";
+import CarritoPage from "../views/CarritoPage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: "/testimonial",
       name: "testimonial",
       component: Testimonial,
+    },
+    {
+      path: "/carrito",
+      name: "carrito",
+      component: CarritoPage,
     },
   ],
 });

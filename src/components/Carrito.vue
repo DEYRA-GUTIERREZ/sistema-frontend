@@ -30,6 +30,7 @@ const abrirCarrito = () => {
       >
         <div>
           {{ producto.modelo_producto }}
+          <span v-if="producto.cantidad >= 1">({{ producto.cantidad }})</span>
         </div>
         <a
           class="boton-borrar-producto"

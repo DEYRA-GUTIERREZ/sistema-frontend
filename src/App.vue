@@ -39,10 +39,12 @@ import Carrito from "./components/Carrito.vue";
                 <i class="fa fa-user" aria-hidden="true"></i>
                 <span> My Account </span>
               </a>
-              <a href="" class="cart-link">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                <span> Cart </span>
-              </a>
+              <RouterLink class="nav-item" to="/carrito" activeClass="active">
+                <a href="" class="cart-link">
+                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                  <span> Carrito </span>
+                </a>
+              </RouterLink>
             </div>
           </div>
         </div>
