@@ -1,15 +1,28 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { useCarritoStore } from "@/store/carritoStore";
+import axios from "axios";
 
 const carritoStore = useCarritoStore();
 const carritoAbiero = ref(false);
+const metodoDePago = ref();
 
 const cerrarCarrito = () => {
   carritoAbiero.value = false;
 };
 const abrirCarrito = () => {
   carritoAbiero.value = true;
+};
+
+const completarVenta = () => {
+  console.log("completarVenta");
+  axios.post(
+    "http://localhost/sistema/endpoints/productos/finalizarCompra.php",
+    {
+      productos: carritoStore.productos,
+      test: "sebas",
+    }
+  );
 };
 </script>
 
@@ -40,5 +53,39 @@ const abrirCarrito = () => {
         </a>
       </div>
     </div>
+  </div>
+  <div>
+    <div>
+      <h4>Metodo de pago</h4>
+      <select name="" id="" v-model="metodoDePago">
+        <option value="tarjeta">Tarjeta de debito/credito</option>
+        <option value="qr">QR</option>
+      </select>
+      <div v-if="metodoDePago === 'tarjeta'">
+        <div>
+          <label for="">Nuero de la tarjeta</label>
+          <input type="text" />
+        </div>
+        <div>
+          <label for="">Codigo cvv</label>
+          <input type="text" />
+        </div>
+        <div>
+          <label for="">Nombre completo</label>
+          <input type="text" />
+        </div>
+        <div>
+          <label for="">Direccion</label>
+          <input type="text" />
+        </div>
+      </div>
+      <div v-if="metodoDePago === 'qr'">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/1/14/Codigo_QR.svg"
+          alt=""
+        />
+      </div>
+    </div>
+    <button @click="completarVenta">Completar la venta</button>
   </div>
 </template>
