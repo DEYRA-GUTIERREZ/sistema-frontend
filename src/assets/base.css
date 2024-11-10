@@ -8,4 +8,5 @@
 
 .contenedor-principal {
   position: relative;
+  min-height: 80vh;
 }

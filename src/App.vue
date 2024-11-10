@@ -11,40 +11,14 @@ import Carrito from "./components/Carrito.vue";
       <div class="header_top">
         <div class="container-fluid">
           <div class="top_nav_container">
-            <div class="contact_nav">
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span> Call : +01 123455678990 </span>
-              </a>
-              <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span> Email : demo@gmail.com </span>
-              </a>
-            </div>
-            <from class="search_form">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Search here..."
-              />
-              <button class="" type="submit">
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </button>
-            </from>
             <div class="user_option_box">
-              <a
+              <!-- <a
                 href="http://localhost/sistema/producto_inicio.php"
                 class="account-link"
               >
                 <i class="fa fa-user" aria-hidden="true"></i>
                 <span> My Account </span>
-              </a>
-              <RouterLink class="nav-item" to="/carrito" activeClass="active">
-                <a href="" class="cart-link">
-                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                  <span> Carrito </span>
-                </a>
-              </RouterLink>
+              </a> -->
             </div>
           </div>
         </div>
@@ -53,7 +27,7 @@ import Carrito from "./components/Carrito.vue";
         <div class="container-fluid">
           <nav class="navbar navbar-expand-lg custom_nav-container">
             <a class="navbar-brand" href="index.html">
-              <span> Minics </span>
+              <span> JMC </span>
             </a>
 
             <button
@@ -75,13 +49,17 @@ import Carrito from "./components/Carrito.vue";
                     >Home <span class="sr-only">(current)</span></a
                   > -->
                   <a class="nav-link">
-                    Home
+                    Inicio
                     <span class="sr-only">(current)</span>
                   </a>
                 </RouterLink>
-                <RouterLink class="nav-item" to="/about" activeClass="active">
+                <RouterLink
+                  class="nav-item"
+                  to="/nosotros"
+                  activeClass="active"
+                >
                   <!-- <a class="nav-link" href="about.html"> About</a> -->
-                  <a class="nav-link"> About </a>
+                  <a class="nav-link"> Acerca de nosotros </a>
                 </RouterLink>
                 <RouterLink
                   class="nav-item"
@@ -91,17 +69,8 @@ import Carrito from "./components/Carrito.vue";
                   <!-- <a class="nav-link" href="product.html">Products</a> -->
                   <a class="nav-link"> Productos </a>
                 </RouterLink>
-                <RouterLink class="nav-item" to="/whyus" activeClass="active">
-                  <!-- <a class="nav-link" href="why.html">Why Us</a> -->
-                  <a class="nav-link"> Why Us </a>
-                </RouterLink>
-                <RouterLink
-                  class="nav-item"
-                  to="/testimonial"
-                  activeClass="active"
-                >
-                  <!-- <a class="nav-link" href="testimonial.html">Testimonial</a> -->
-                  <a class="nav-link"> Testimonial </a>
+                <RouterLink class="nav-item" to="/carrito" activeClass="active">
+                  <a class="nav-link"> Carrito </a>
                 </RouterLink>
               </ul>
             </div>
@@ -121,8 +90,8 @@ import Carrito from "./components/Carrito.vue";
   <footer class="footer_section">
     <div class="container">
       <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://html.design/">Free Html Templates</a>
+        &copy; <span id="displayYear"></span> Todos los derechos reservados por
+        JVMC
       </p>
     </div>
   </footer>

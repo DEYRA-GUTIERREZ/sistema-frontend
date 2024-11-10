@@ -5,12 +5,19 @@ import { useCarritoStore } from "@/store/carritoStore";
 
 const carritoStore = useCarritoStore();
 const productos = ref([]);
+const recomendados = ref([]);
 
 const initialize = async () => {
   const { data } = await axios.get(
     "http://localhost/sistema/endpoints/productos/list.php"
   );
   productos.value = data;
+};
+const obtenerProductosRecomendados = async () => {
+  const { data } = await axios.get(
+    "http://localhost/sistema/endpoints/productos/recomendados.php"
+  );
+  recomendados.value = data;
 };
 
 const agregarACarrito = (producto) => {
@@ -19,7 +26,10 @@ const agregarACarrito = (producto) => {
   carritoStore.agregarProducto(objetoProducto);
 };
 
-onMounted(() => initialize());
+onMounted(() => {
+  initialize();
+  obtenerProductosRecomendados();
+});
 </script>
 
 <template>
@@ -55,6 +65,38 @@ onMounted(() => initialize());
         </div>
         <div class="btn_box">
           <a href="" class="view_more-link"> View More </a>
+        </div>
+      </div>
+    </section>
+    <section class="product_section">
+      <h3>Productos Recomendados para usted</h3>
+      <div class="row">
+        <div
+          class="col-sm-6 col-lg-4"
+          v-for="recomendado in recomendados"
+          :key="recomendado.id_producto"
+        >
+          <div class="box">
+            <div class="img-box">
+              <img :src="recomendado.url_imagen" alt="" />
+              <a class="add_cart_btn" @click="agregarACarrito(recomendado)">
+                <span> Add To Cart </span>
+              </a>
+            </div>
+            <div class="detail-box">
+              <h5>{{ recomendado.modelo_producto }}</h5>
+              <div class="product_info">
+                <h5>{{ recomendado.precio_producto }}<span>Bs</span></h5>
+              </div>
+              <div class="star_container">
+                <span>&#9733;</span>
+                <span>&#9733;</span>
+                <span>&#9733;</span>
+                <span>&#9733;</span>
+                <span>&#9733;</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

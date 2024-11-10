@@ -48,5 +48,8 @@ export const useCarritoStore = defineStore("Carrito", {
         }
       });
     },
+    borrarProductos() {
+      this.productos = [];
+    },
   },
 });
